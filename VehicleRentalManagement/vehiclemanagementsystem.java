@@ -9,6 +9,7 @@ public class vehiclemanagementsystem {
         rentalSystem.addvehicle(bike);
         rentalSystem.addvehicle(truck);
         rentalSystem.addvehicle(car);
+        double total =0;
         Scanner sc = new Scanner(System.in);
         while(true)
         {
@@ -34,6 +35,7 @@ public class vehiclemanagementsystem {
                     System.out.print("Enter the number of days to rent: ");
                     int f = sc.nextInt();
                     rentalSystem.rentVehicles(d, f);
+                    total=rentalSystem.calculatetotalearnings(1,total);
                     break;
                 }
                 case 3:
@@ -45,12 +47,17 @@ public class vehiclemanagementsystem {
                 }
                 case 4:
                 {
-                    System.out.println("Under development");
+                    System.out.print("Enter the minimum mileage: ");
+                    double minm = sc.nextDouble();
+                    System.out.print("Enter the maxmileage: ");
+                    double maxm = sc.nextDouble();
+                    rentalSystem.searchVehiclebymileage(minm, maxm);
                     break;
                 }
                 case 5:
                 {
-                    System.out.println("Under development");
+                    total=rentalSystem.calculatetotalearnings(1,total);
+                    System.out.println("Total earning Rs: "+total);
                     break;
                 }
                 case 6:
