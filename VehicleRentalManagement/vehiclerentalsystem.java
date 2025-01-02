@@ -49,6 +49,28 @@ public class vehiclerentalsystem {
             }
             System.out.println("Vehicle is already returned or available");
         }
+        public void searchVehiclebymileage(double minMileage,double maxMileage)
+        {
+            System.out.println("Vehicle available within the mileage");
+            for(vehicle v:inventory)
+            {
+                if(v.getmileage()>=minMileage && v.getmileage()<=maxMileage)
+                {
+                    System.out.println("Vehicle id: "+v.getId()+" Mileage: "+v.getmileage());
+                }
+            }
+        }
+        public double calculatetotalearnings(int days,double total)
+        {
+            for(vehicle v:inventory)
+            {
+                if(!v.isAvailable())
+                {
+                    total+=v.getrentalcost(days);
+                }
+            }
+            return total;
+        }
 
 }
     
